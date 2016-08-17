@@ -6,10 +6,10 @@ let a .= 'qwertyuiop[]  QWERTYUIOP{} '
 let a .= 'asdfghjkl;''\ ASDFGHJKL:"| '
 let a .= 'zxcvbnm,./    ZXCVBNM<>?   '
 
-let b  = '`¨¯<≤=≥>≠∨∧÷× ⍨∞⍁⍂⍠≈⌸⍯⍣⍱⍲≢≡'
-let b .= 'q⍵∊⍴~↑↓⍳○⍟←→  ⌹⍹⍷⍤T⌶⊖⍸⍬⌽⊣⊢ '
-let b .= '⍺⌈⌊⍫∇∆∘k⎕⋄''⍀ ⍶SDF⍒⍋⍝K⍞:"⍉ '
-let b .= '⊂⊃∩∪⊥⊤∣⍪.⌿    ⊆⊇⋔⍦⍎⍕⌷«»↗   '
+let b  = '⋄¨¯<≤=≥>≠∨∧×÷ ⋄⌶⍫⍒⍋⌽⍉⊖⍟⍱⍲!⌹'
+let b .= '?⍵∊⍴~↑↓⍳○*←→  ?⍵⍷⍴⍨↑↓⍸⍥⍣⍞⍬ '
+let b .= '⍺⌈⌊∥∇∆∘''⎕⍎⍕⊢ ⍺⌈⌊⊚∇∆⍤⌸⌷≡≢⊣ '
+let b .= '⊂⊃∩∪⊥⊤|⍝⍀⌿    ⊂⊃∩∪⊥⊤|⍪⍙⍠   '
 
 let [A, B] = map([a, b], "split(v:val,'\\zs *')")
 
@@ -21,5 +21,5 @@ if !exists("g:AplPrefix")
         let g:AplPrefix = '`'
 endif
 
-for i in range(len(A)) | exe escape('ln<buffer>'.g:AplPrefix.A[i].' '.B[i], '|') | endfor
+for i in range(len(A)) | exe escape('ln<buffer>'.g:AplPrefix.A[i].' '.B[i], '|\') | endfor
 unl a b A B i
