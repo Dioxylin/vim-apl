@@ -12,5 +12,14 @@ let b .= '⍺⌈⌊⍫∇∆∘k⎕⋄''⍀ ⍶SDF⍒⍋⍝K⍞:"⍉ '
 let b .= '⊂⊃∩∪⊥⊤∣⍪.⌿    ⊆⊇⋔⍦⍎⍕⌷«»↗   '
 
 let [A, B] = map([a, b], "split(v:val,'\\zs *')")
-for i in range(len(A)) | exe escape('ln<buffer>`'.A[i].' '.B[i], '|') | endfor
+
+" Probably should go somewhere else.  Meh.
+"
+" Setting this to <Esc> makes it so 2+ Esc presses are needed to exit insert
+" mode.  Or use <C-c>.  Apparently <Esc><Space> works, too.
+if !exists("g:AplPrefix")
+        let g:AplPrefix = '`'
+endif
+
+for i in range(len(A)) | exe escape('ln<buffer>'.g:AplPrefix.A[i].' '.B[i], '|') | endfor
 unl a b A B i
